@@ -1,30 +1,53 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="main">
+  <header-todo class="header-todo" />
+  <task-list v-bind:todoEntries="todoEntries" class="task-list" />
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import HeaderTodo from '@/components/Header'
+import TaskList from '@/components/TaskList'
 
-nav {
-  padding: 30px;
+  export default{
+    components: {
+      HeaderTodo, TaskList
+    },
+    data(){
+      return{
+        todoEntries: [
+          {
+            id: 1,
+            title: 'Buy Milk',
+            descr: 'Look at the Date'
+          },
+          {
+            id: 2,
+            title: 'Buy Bananas',
+            descr: 'Yellow'
+          },
+          {
+            id: 3,
+            title: 'Buy Headphones',
+            descr: 'Black'
+          },
+        ]
+      }
+    },
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
   }
-}
+</script>
+
+<style lang="scss" scoped>
+  .main{
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .header-todo{
+    background-color: rgb(203, 255, 151);
+  }
+  .task-list{
+    background-color: rgb(140, 140, 140);
+  }
+
 </style>
