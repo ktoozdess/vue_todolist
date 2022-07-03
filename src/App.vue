@@ -1,38 +1,56 @@
 <template>
   <div class="main">
   <header-todo class="header-todo" />
-  <task-list v-bind:todoEntries="todoEntries" class="task-list" />
+  <TaskForm @add-todo="addTodo" />
+  <task-list v-bind:todoEntries="todoEntries"  @deleteTask="deleteTaskItem" class="task-list" />
+
   </div>
 </template>
 
 <script>
 import HeaderTodo from '@/components/Header'
 import TaskList from '@/components/TaskList'
+import TaskForm from '@/components/TaskForm'
+
 
   export default{
     components: {
-      HeaderTodo, TaskList
-    },
+    HeaderTodo,
+    TaskList,
+    TaskForm
+},
     data(){
       return{
         todoEntries: [
           {
             id: 1,
             title: 'Buy Milk',
-            descr: 'Look at the Date'
+            descr: 'Look at the Date',
+            completed: false
           },
           {
             id: 2,
             title: 'Buy Bananas',
-            descr: 'Yellow'
+            descr: 'Yellow',
+            completed: false
           },
           {
             id: 3,
             title: 'Buy Headphones',
-            descr: 'Black'
+            descr: 'Black',
+            completed: false
           },
         ]
       }
+    },
+    methods: {
+      addTodo(todo){
+      this.todoEntries.push(todo);
+      },
+      deleteTaskItem(todoId){
+        this.todoEntries = this.todoEntries.filter(item => item.id !== todoId)
+      }
+
     },
 
   }

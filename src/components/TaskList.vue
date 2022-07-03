@@ -2,7 +2,7 @@
 <div>
     <ul>
     <li v-for="item in todoEntries" v-bind:key="item.id">
-         <task-item v-bind:TaskItem="item"/>
+         <task-item v-bind:TaskItem="item" @deleteTask="$emit('deleteTask', item.id)" />
          <br>
     </li>
     </ul>
@@ -29,6 +29,9 @@ export default{
     ul{
         margin: 0px;
         padding: 20px 40px;
+    }
+    li{
+        
     }
 
 </style>
