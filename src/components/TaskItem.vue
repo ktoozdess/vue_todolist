@@ -2,7 +2,7 @@
 <div v-bind:class="{ 'completed' : TaskLocal.completed }" >
     <p @click="markComplete" class="title"> {{ TaskItem.title }} </p>
    <p @click="markComplete" class="descr">{{ TaskItem.descr }}</p>
-    <button @click="$emit('deleteTask', TaskItem.id)" >Delete</button>
+    <button class="btn btn-danger" @click="$emit('deleteTask', TaskItem.id)" >Delete</button>
 </div>
 </template>
 

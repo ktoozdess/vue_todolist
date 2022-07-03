@@ -12,7 +12,7 @@ import HeaderTodo from '@/components/Header'
 import TaskList from '@/components/TaskList'
 import TaskForm from '@/components/TaskForm'
 
-
+  
   export default{
     components: {
     HeaderTodo,
@@ -40,7 +40,8 @@ import TaskForm from '@/components/TaskForm'
             descr: 'Black',
             completed: false
           },
-        ]
+        ],
+        
       }
     },
     methods: {
@@ -49,7 +50,7 @@ import TaskForm from '@/components/TaskForm'
       },
       deleteTaskItem(todoId){
         this.todoEntries = this.todoEntries.filter(item => item.id !== todoId)
-      }
+      },
 
     },
 
@@ -62,7 +63,7 @@ import TaskForm from '@/components/TaskForm'
     margin: 0 auto;
   }
   .header-todo{
-    background-color: rgb(203, 255, 151);
+    background-color: #198754;
   }
   .task-list{
     background-color: rgb(140, 140, 140);
